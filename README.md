@@ -8,18 +8,18 @@ Spring Boot application integrates multiple `minio` quickly, which is a high per
 
 ```xml
     <dependency>
-        <groupId>cn.unikue.springstarter</groupId>
+        <groupId>com.jiovan.spring.starter</groupId>
         <artifactId>multiple-minio-spring-boot-starter</artifactId>
         <version>LATEST</version>
     </dependency>
 ```
 
-> By default, this starter will auto take effect, you can turn it off by `spring.multiple-minio.enabled = false`
+> By default, this starter will auto take effect, you can turn it off by `jiovan.multiple-minio.enabled = false`
 
-- Configure Spring Boot `application.yml` with prefix `spring.multiple-minio`
+- Configure Spring Boot `application.yml` with prefix `jiovan.multiple-minio`
 
 ```yml
-spring:
+jiovan:
     multiple-minio:
         primary:
             host: '192.168.0.1'
@@ -54,7 +54,7 @@ spring:
 
 ## Document
 
-- Github: https://github.com/unikueltd/multiple-minio-spring-boot-starter
+- Github: https://github.com/jiovan-labs/multiple-minio-spring-boot-starter
 - Minio homepage: https://min.io
 - Minio github: https://github.com/minio/minio
 
@@ -70,12 +70,12 @@ See the `NOTICE.txt` file for required notices and attributions.
 
 ## Donation
 
-You like this package? Then [donate to us](https://unikue.cn/donation) to support the development.
+You like this package? Then [donate to us](https://jiovan.com/donation) to support the development.
 
 ## Copyright
 
-Beijing Unikue Network Technology Ltd.
+Beijing Jiovan Technology Ltd.
 
 ## Website
 
-- Unikue: https://unikue.cn
+- Jiovan: https://jiovan.com

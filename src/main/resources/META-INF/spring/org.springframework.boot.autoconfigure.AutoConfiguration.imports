@@ -1,7 +1,7 @@
 # Multiple Minio for Spring Boot Starter
-# Copyright (c) 2020 Unikue Ltd. All rights reserved.
-# https://unikue.cn
+# Copyright (c) 2020 Jiovan Ltd. All rights reserved.
+# https://jiovan.com
 
-cn.unikue.springstarter.multipleminio.config.PrimaryMinioAutoConfiguration
-cn.unikue.springstarter.multipleminio.config.SecondaryMinioAutoConfiguration
-cn.unikue.springstarter.multipleminio.config.TertiaryMinioAutoConfiguration
+com.jiovan.spring.starter.multipleminio.config.PrimaryMinioAutoConfiguration
+com.jiovan.spring.starter.multipleminio.config.SecondaryMinioAutoConfiguration
+com.jiovan.spring.starter.multipleminio.config.TertiaryMinioAutoConfiguration

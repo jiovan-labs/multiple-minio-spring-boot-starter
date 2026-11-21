@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 Unikue Ltd. All rights reserved.
+ * Copyright (c) 2020 Jiovan Ltd. All rights reserved.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package cn.unikue.springstarter.multipleminio.config;
+package com.jiovan.spring.starter.multipleminio.config;
 
 
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -26,28 +26,33 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import cn.unikue.commonplexus.springutil.property.MinioProperties;
-import cn.unikue.commonplexus.springutil.util.MinioConfigWraps;
+import com.jiovan.plexus.spring.toolkit.property.MinioProperties;
+import com.jiovan.plexus.spring.toolkit.util.MinioConfigWraps;
 import io.minio.MinioClient;
 import jakarta.annotation.Nonnull;
 
 
 /**
- * Primary configuration for {@link io.minio.MinioClient}
+ * Primary configuration for minio client
  *
  * @author David Hsing
+ *
  * @see io.minio.MinioClient
- * @reference "https://min.io/"
+ * @see "https://min.io"
  */
 @Configuration(proxyBeanMethods = false)
 @ConditionalOnProperty(prefix = PrimaryMinioAutoConfiguration.PROPERTIES_PREFIX, name = "endpoint")
 @ConditionalOnClass(value = MinioClient.class)
-@SuppressWarnings({"JavadocDeclaration", "JavadocLinkAsPlainText"})
 public class PrimaryMinioAutoConfiguration {
-    public static final String PROPERTIES_PREFIX = "spring.multiple-minio.primary";    // $NON-NLS-1$
+    public static final String PROPERTIES_PREFIX = "jiovan.multiple-minio.primary";    // $NON-NLS-1$
     public static final String MINIO_PROPERTIES = "primaryMinioProperties";    // $NON-NLS-1$
     public static final String MINIO_CLIENT = "primaryMinioClient";    // $NON-NLS-1$
 
+    /**
+     * Returns the minio properties bean bound from the configured properties prefix
+     *
+     * @return the bound minio properties bean
+     */
     @Primary
     @Bean(name = MINIO_PROPERTIES)
     @ConfigurationProperties(prefix = PROPERTIES_PREFIX)
@@ -56,6 +61,15 @@ public class PrimaryMinioAutoConfiguration {
         return new MinioProperties();
     }
 
+    /**
+     * Returns the {@link io.minio.MinioClient} bean configured from the given minio properties
+     *
+     * @param properties the minio properties holding the endpoint and credentials
+     *
+     * @return the configured minio client
+     *
+     * @throws java.lang.Exception if the minio client cannot be created
+     */
     @Primary
     @Bean(name = MINIO_CLIENT)
     @ConditionalOnBean(name = MINIO_PROPERTIES, value = MinioProperties.class)
