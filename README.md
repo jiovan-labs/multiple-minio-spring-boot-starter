@@ -1,3 +1,5 @@
+[English](README.md) | [简体中文](README.zh-CN.md) | [繁體中文](README.zh-TW.md)
+
 # Multiple Minio Spring Boot Starter
 
 Spring Boot application integrates multiple `minio` quickly, which is a high performance object Storage.
